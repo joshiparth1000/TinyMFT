@@ -90,3 +90,4 @@ A sample event looks something like this:
 ## Integration engine
 Apache Camel provides the routing and file transformation engine for TinyMFT. On start up TinyMFT starts a camel context in which all the routes located in the ROUTES folder configured in config.properties are loaded and started automatically. A folder monitor periodcally checks the ROUTE folder for any changes and based on the operation stops or starts the route. If an existing route is changed then it is stopped and the new configuration is loaded and route is restarted. A sample event has already provided which consumes the event from seda:transferevent.
 
+Using the versatility provided by Apache Camel the file can be routed or picked up from multiple different end points like SFTP remote server, S3 bucket, LDAP servers etc. Moreover, developers can extend the capabilities of TinyMFT outside of its core.
