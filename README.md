@@ -91,3 +91,7 @@ A sample event looks something like this:
 Apache Camel provides the routing and file transformation engine for TinyMFT. On start up TinyMFT starts a camel context in which all the routes located in the ROUTES folder configured in config.properties are loaded and started automatically. A folder monitor periodcally checks the ROUTE folder for any changes and based on the operation stops or starts the route. If an existing route is changed then it is stopped and the new configuration is loaded and route is restarted. A sample event has already provided which consumes the event from seda:transferevent.
 
 Using the versatility provided by Apache Camel the file can be routed or picked up from multiple different end points like SFTP remote server, S3 bucket, LDAP servers etc. Moreover, developers can extend the capabilities of TinyMFT outside of its core.
+
+
+## Pluggable authentication
+TinyMFT is uses JAAS to provide authentication for users. Since, JAAS is authentication agnostic TinyMFT can be integrated with any kind of user store. A sample module AuthFileLoginModule has been implemented which reads user credentials from a flat file. When implementing your own authentication module extend the AbstractLoginModule and implement the checkPasword method. In your login method you the inherited authenticate method to authenticate the user.
