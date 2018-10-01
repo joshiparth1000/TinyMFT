@@ -1,0 +1,31 @@
+<routes xmlns="http://camel.apache.org/schema/spring">
+    <route id="transferevent">
+		<from uri="seda:transferevent"/>
+		<setHeader headerName="state">
+			<xpath resultType="java.lang.String">
+				/Event/properties/entry[key='state']/value
+			</xpath>
+		</setHeader>
+		<setHeader headerName="filename">
+			<xpath resultType="java.lang.String">
+				/Event/properties/entry[key='filename']/value
+			</xpath>
+		</setHeader>
+		<setHeader headerName="file">
+			<xpath resultType="java.lang.String">
+				/Event/properties/entry[key='file']/value
+			</xpath>
+		</setHeader>
+		<setBody>
+			<groovy>
+				new File("${in.headers['file']}");
+			</groovy>
+		</setBody>
+		<choice>
+			<when>
+				<simple>${in.headers['state']} == 'ENDED'</simple>
+				<to uri="file:C:/Users/pjoshi/workspace/tinymft/target?fileName=${in.headers['filename']}" />
+			</when>
+		</choice>
+    </route>
+</routes>
