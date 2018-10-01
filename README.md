@@ -44,7 +44,7 @@ A sample event looks something like this:
     <properties>
         <entry>
             <key>file</key>
-            <value>C:\test\FTPS.jmx</value>
+            <value>/opt/test/FTPS.jmx</value>
         </entry>
         <entry>
             <key>filename</key>
@@ -64,11 +64,11 @@ A sample event looks something like this:
         </entry>
         <entry>
             <key>transmittedbytes</key>
-            <value>0</value>
+            <value>4551</value>
         </entry>
         <entry>
             <key>filesize</key>
-            <value>0</value>
+            <value>4551</value>
         </entry>
         <entry>
             <key>state</key>
