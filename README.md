@@ -35,3 +35,49 @@ TinyMFT provides an event driven model wherein on events are generated during th
 For each of these stages TinyMFT sends out an event in xml format to the seda:transferevent camel route. A sample route has been provided which ingests this event and copies the file to a separate location. Using the apache camel you can specify conditional processing. It is recommend that for each specific processing a differnt route is created which is fed conditonally by the route catching the message from seda:transferevent.
 
 A sample event looks something like this:
+```
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Event>
+    <id>51104791-69f3-4aa7-a420-afc7d41b137c</id>
+    <date>2018-09-30T18:45:02.061-07:00</date>
+    <lastevent></lastevent>
+    <properties>
+        <entry>
+            <key>file</key>
+            <value>C:\test\FTPS.jmx</value>
+        </entry>
+        <entry>
+            <key>filename</key>
+            <value>/FTPS.jmx</value>
+        </entry>
+        <entry>
+            <key>session</key>
+            <value>sEWBjSZ+kiA+y335vsn4SP6MOajNQM7O/PpO8hrIVcw=</value>
+        </entry>
+        <entry>
+            <key>action</key>
+            <value>UPLOAD</value>
+        </entry>
+        <entry>
+            <key>id</key>
+            <value>f939ffef7306897e0006d3d5420f4399</value>
+        </entry>
+        <entry>
+            <key>transmittedbytes</key>
+            <value>0</value>
+        </entry>
+        <entry>
+            <key>filesize</key>
+            <value>0</value>
+        </entry>
+        <entry>
+            <key>state</key>
+            <value>ENDED</value>
+        </entry>
+        <entry>
+            <key>username</key>
+            <value>test</value>
+        </entry>
+    </properties>
+</Event>
+```
