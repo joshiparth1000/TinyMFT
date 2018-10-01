@@ -9,6 +9,8 @@ TinyMFT supports dual authentication using password and certificate/key cobminat
 Additionally, [Apache Camel](http://camel.apache.org/) provides the integration engine which lets you take care of complicated routing and transformation of files.
 
 ## Configuration
+The config.properties file in the conf folder contains the configuration parameters used to run TinyMFT.
+
 * JAASCONFIG - Specifies the location of JAAS config file
 * JAASDOMAIN - JAAS domain to be used for authentication
 * BINDIP - Interface IP to bind the ports
@@ -24,6 +26,9 @@ Additionally, [Apache Camel](http://camel.apache.org/) provides the integration 
 * ROOTFOLDER - Folder under which home folder of each account will be created
 * ROUTESFOLDER - Location of all camel routes
 * DUALAUTH - Enable dual authentication (true/false)
+* SECRET - Automatically generated secret key which encrypts the trust store and keystore password
+
+The logging can be configured using the log4j.properties file in the conf folder.
 
 ## Event driven model
 TinyMFT provides an event driven model wherein on events are generated during the lifecycle of a file transfer. A file transfer goes through the following stages in TinyMFT:
