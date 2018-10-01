@@ -1,2 +1,2 @@
 # TinyMFT
-Event driven multi-protocol gateway
+Event driven multi-protocol file transfer gateway
