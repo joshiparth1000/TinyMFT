@@ -9,3 +9,5 @@ TinyMFT supports dual authentication using password and certificate/key cobminat
 Additionally, [Apache Camel](http://camel.apache.org/) provides the integration engine which lets you take care of complicated routing and transformation of files.
 
 ## Configuration
+* JAASCONFIG - Specifies the location of JAAS config file
+* JAASDOMAIN - JAAS domain to be used for authentication
