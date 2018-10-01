@@ -11,3 +11,27 @@ Additionally, [Apache Camel](http://camel.apache.org/) provides the integration 
 ## Configuration
 * JAASCONFIG - Specifies the location of JAAS config file
 * JAASDOMAIN - JAAS domain to be used for authentication
+* BINDIP - Interface IP to bind the ports
+* SSHPORT - SSH Port
+* FTPPORT - FTP Port
+* HTTPPORT - HTTP Port
+* KEYSTORE - Keystore location containing the server certificate
+* KEYSTOREPASSWORD - Keystore password
+* KEYPASSWORD - Private Key password
+* KEYALIAS - Alias of certificate in the keystore
+* TRUSTSTORE - Location of the trust store
+* TRUSTSTOREPASSWORD - Trust store password
+* ROOTFOLDER - Folder under which home folder of each account will be created
+* ROUTESFOLDER - Location of all camel routes
+* DUALAUTH - Enable dual authentication (true/false)
+
+## Event driven model
+TinyMFT provides an event driven model wherein on events are generated during the lifecycle of a file transfer. A file transfer goes through the following stages in TinyMFT:
+* STARTED - When the file transfer starts
+* INPROGRESS - When the file is in the process of being uploaded or downloaded
+* ENDED - When a file transfer successfully completes
+* ABORTED - When a an error occurs during file transfer
+
+For each of these stages TinyMFT sends out an event in xml format to the seda:transferevent camel route. A sample route has been provided which ingests this event and copies the file to a separate location. Using the apache camel you can specify conditional processing. It is recommend that for each specific processing a differnt route is created which is fed conditonally by the route catching the message from seda:transferevent.
+
+A sample event looks something like this:
