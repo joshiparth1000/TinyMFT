@@ -37,7 +37,7 @@ TinyMFT provides an event driven model wherein on events are generated during th
 * ENDED - When a file transfer successfully completes
 * ABORTED - When a an error occurs during file transfer
 
-For each of these stages TinyMFT sends out an event in xml format to the seda:transferevent camel route. A sample route has been provided which ingests this event and copies the file to a separate location. Using the apache camel you can specify conditional processing. It is recommend that for each specific processing a differnt route is created which is fed conditonally by the route catching the message from seda:transferevent.
+For each of these stages TinyMFT sends out an event in xml format to the seda:transferevent camel route. A sample route has been provided which ingests this event and copies the file to a separate location. Using the apache camel you can specify conditional processing. It is recommend that for each specific processing a differnt route is created which is fed conditonally by the route catching the event from seda:transferevent.
 
 A sample event looks something like this:
 ```
