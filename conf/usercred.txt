@@ -1,0 +1,2 @@
+test|axway123|conf/ftpclient.crt
+test2|Axway123|conf/test2.crt
